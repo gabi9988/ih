@@ -147,10 +147,10 @@ opacity:0; z-index:999; transition: opacity 1.5s ease;"></div>
   <div id="msg3" class="mensagem">😳 Hmmm, me diz você então...</div>
   <div id="circleTransition" style="position:fixed; top:50%; left:50%; width:0; height:0; background:#fff0f5; border-radius:50%; transform:translate(-50%,-50%); z-index:1000; opacity:0; transition:all 1.5s ease;"></div>
 
-  <div id="pedidoFinal" class="mensagem">
-    <div style="font-size: 2em; font-weight: bold;">Quer namorar comigo?</div>
-    <div style="font-size: 3em;">🌹</div>
-    <div class="botoes">
+  
+<div id="pedidoFinal" style="display: none; flex-direction: column; align-items: center; gap: 20px; margin-top: 20px;">
+  <div style="font-size: 2.5em; font-family: 'Playfair Display', serif; font-weight: bold; color: #fff;">Quer namorar comigo?</div>
+  <div class="botoes">
       <button class="sim" onclick="responder(true)">Sim 💖</button>
       <button class="nao" onclick="responder(false)">Não 😢</button>
     </div>
