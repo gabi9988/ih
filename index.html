@@ -395,5 +395,58 @@ function iniciarTudo() {
   }, 12500);
 }
 </script>
+
+<script>
+const msg1 = document.getElementById('msg1');
+const msg2 = document.getElementById('msg2');
+const msg3 = document.getElementById('msg3');
+const musica = document.getElementById('musica');
+
+function iniciarTudo() {
+  document.getElementById("startScreen").remove();
+  musica.play().catch(() => console.log("Autoplay bloqueado"));
+
+  setTimeout(() => msg1.classList.add('show'), 1000);
+  setTimeout(() => {
+    msg1.classList.remove('show');
+    msg2.classList.add('show');
+  }, 5000);
+  setTimeout(() => {
+    msg2.classList.remove('show');
+    msg3.classList.add('show');
+  }, 9500);
+  setTimeout(() => {
+    msg3.classList.remove('show');
+    iniciarTransicaoComBrilho();
+  }, 13000);
+}
+
+function iniciarTransicaoComBrilho() {
+  const overlay = document.getElementById("fadeOverlay");
+  const pedido = document.getElementById("pedidoFinal");
+  console.log("Transição iniciada");
+  overlay.style.opacity = 1;
+  setTimeout(() => {
+    overlay.style.opacity = 0;
+    pedido.style.display = 'flex';
+    pedido.classList.add("show");
+  }, 1600);
+}
+
+function responder(sim) {
+  document.querySelector('.botoes').style.display = 'none';
+  const mf = document.getElementById('mensagemFinal');
+  mf.style.opacity = 1;
+  if (sim) {
+    mf.textContent = 'Então pode abrir a caixa... 💝';
+    setTimeout(() => {
+      window.location.href = 'https://makeagif.com/i/6uIqkd';
+    }, 5000);
+  } else {
+    mf.textContent = '🖕';
+  }
+}
+</script>
+
 </body>
 </html>
