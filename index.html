@@ -177,7 +177,22 @@ document.body.addEventListener('click', () => {
     setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
 
     
-    function iniciarTransicaoCircular() {
+    
+function iniciarTransicaoCircular() {
+  const circle = document.getElementById("circleTransition");
+  if (circle) {
+    circle.style.opacity = 1;
+    circle.style.width = "300vmax";
+    circle.style.height = "300vmax";
+    setTimeout(() => {
+      circle.style.opacity = 0;
+      document.getElementById("pedidoFinal").classList.add("show");
+    }, 1800);
+  } else {
+    console.warn("Transição circular não encontrada");
+    document.getElementById("pedidoFinal").classList.add("show");
+  }
+}
       const circle = document.getElementById("circleTransition");
       circle.style.opacity = 1;
       circle.style.width = "300vmax";
