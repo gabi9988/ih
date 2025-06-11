@@ -131,6 +131,11 @@
 </style>
 </head>
 <body>
+<div id="fadeOverlay" style="position:fixed; top:0; left:0; width:100vw; height:100vh;
+background: radial-gradient(circle at center, #fff8f8, #ffe6e6);
+box-shadow: 0 0 80px 40px #ffffff;
+opacity:0; z-index:999; transition: opacity 1.5s ease;"></div>
+
 <div id="startScreen" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); color:#fff; display:flex; align-items:center; justify-content:center; z-index:2000;">
   <button id="startBtn" style="padding: 20px 40px; font-size: 1.4em; border-radius: 30px; background-color: #ff4d88; color: white; border: none; font-family: 'Quicksand', sans-serif; cursor: pointer;">
     💖 Clique aqui para começar 💖
@@ -140,7 +145,7 @@
   <div id="msg1" class="mensagem">💘 Feliz Dia dos Namorados! 💘</div>
   <div id="msg2" class="mensagem">🤔 Ué, mas a gente namora?</div>
   <div id="msg3" class="mensagem">😳 Hmmm, me diz você então...</div>
-  <div id="fadeOverlay" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background: radial-gradient(circle at center, #fff8f8, #ffe6e6); box-shadow: 0 0 80px 40px #ffffff; opacity:0; z-index:999; transition: opacity 1.5s ease, box-shadow 1.5s ease;" style="position:fixed; top:50%; left:50%; width:0; height:0; background:#fff0f5; border-radius:50%; transform:translate(-50%,-50%); z-index:1000; opacity:0; transition:all 1.5s ease;"></div>
+   style="position:fixed; top:50%; left:50%; width:0; height:0; background:#fff0f5; border-radius:50%; transform:translate(-50%,-50%); z-index:1000; opacity:0; transition:all 1.5s ease;"></div>
 
   <div id="pedidoFinal" class="mensagem">
     <div style="font-size: 2em; font-weight: bold;">Quer namorar comigo?</div>
@@ -174,33 +179,10 @@ document.body.addEventListener('click', () => {
     setTimeout(() => msg1.classList.add('show'), 1000);
     setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
     setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-    setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+    setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 
     
     
-
-function iniciarTransicaoCircular() {
-  const overlay = document.getElementById("fadeOverlay");
-  overlay.style.opacity = 1;
-  setTimeout(() => {
-    overlay.style.opacity = 0;
-    document.getElementById("pedidoFinal").classList.add("show");
-  }, 1500);
-}
-  const circle = document.getElementById("circleTransition");
-  if (circle) {
-    circle.style.opacity = 1;
-    circle.style.width = "300vmax";
-    circle.style.height = "300vmax";
-    setTimeout(() => {
-      circle.style.opacity = 0;
-      document.getElementById("pedidoFinal").classList.add("show");
-    }, 1800);
-  } else {
-    console.warn("Transição circular não encontrada");
-    document.getElementById("pedidoFinal").classList.add("show");
-  }
-}
       const circle = document.getElementById("circleTransition");
       circle.style.opacity = 1;
       circle.style.width = "300vmax";
@@ -259,7 +241,7 @@ function iniciarTudo() {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 }
 
 function iniciarTudo() {
@@ -269,7 +251,7 @@ function iniciarTudo() {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 }
 
 document.getElementById("startBtn").addEventListener("click", () => {
@@ -279,9 +261,19 @@ document.getElementById("startBtn").addEventListener("click", () => {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 });
+
+function iniciarTransicaoComBrilho() {
+  const overlay = document.getElementById("fadeOverlay");
+  overlay.style.opacity = 1;
+  setTimeout(() => {
+    overlay.style.opacity = 0;
+    document.getElementById("pedidoFinal").classList.add("show");
+  }, 1600);
+}
 </script>
+
 
 
 
@@ -303,9 +295,19 @@ document.getElementById("startBtn").addEventListener("click", () => {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 });
+
+function iniciarTransicaoComBrilho() {
+  const overlay = document.getElementById("fadeOverlay");
+  overlay.style.opacity = 1;
+  setTimeout(() => {
+    overlay.style.opacity = 0;
+    document.getElementById("pedidoFinal").classList.add("show");
+  }, 1600);
+}
 </script>
+
 
 </body>
 </html>
