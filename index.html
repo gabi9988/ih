@@ -161,240 +161,10 @@ opacity:0; z-index:999; transition: opacity 1.5s ease;"></div>
 <button class="sim" onclick="responder(true)">Sim 💖</button>
 <button class="nao" onclick="responder(false)">Não 😢</button>
 </div>
-
 <div class="mensagem" id="mensagemFinal" style="background: none;"></div>
 <audio id="musica" loop="" preload="auto" src="musica.mp3"></audio>
 
 
-<script>
-    const msg1 = document.getElementById('msg1');
-    const msg2 = document.getElementById('msg2');
-    const msg3 = document.getElementById('msg3');
-    const contador = document.getElementById('contador');
-    const pedidoFinal = document.getElementById('pedidoFinal');
-    const mensagemFinal = document.getElementById('mensagemFinal');
-    const musica = document.getElementById('musica');
-
-    
-document.body.addEventListener('click', () => {
-  musica.play().catch(() => console.log("Autoplay ainda bloqueado"));
-}, { once: true });
-
-
-    // Mostrar frases em sequência
-    setTimeout(() => msg1.classList.add('show'), 1000);
-    setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
-    setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-    
-setTimeout(() => {
-  msg3.classList.remove('show');
-  setTimeout(() => {
-    iniciarTransicaoComBrilho();
-  }, 100); // garantir que DOM esteja pronto
-}, 12000);
-
-
-    
-    function iniciarTransicaoCircular() {
-      const circle = document.getElementById("circleTransition");
-      circle.style.opacity = 1;
-      circle.style.width = "300vmax";
-      circle.style.height = "300vmax";
-      setTimeout(() => {
-        circle.style.opacity = 0;
-        document.getElementById('pedidoFinal').classList.add('show');
-      }, 1800);
-    }
-    
-      let numeros = ["3", "2", "1"];
-      let i = 0;
-      const intervalo = setInterval(() => {
-        contador.innerText = numeros[i];
-        i++;
-        if (i === numeros.length) {
-          clearInterval(intervalo);
-          contador.classList.remove('show');
-          setTimeout(() => {
-            pedidoFinal.classList.add('show');
-          }, 300);
-        }
-      }, 1000);
-    }
-
-    function responder(sim) {
-      document.querySelector('.botoes').style.display = 'none';
-      if (sim) {
-        
-mensagemFinal.innerText = "Você me fez a pessoa mais feliz do mundo! 💞";
-setTimeout(() => {
-  window.location.href = "https://makeagif.com/i/6uIqkd";
-}, 5000);
-
-        setTimeout(() => {
-          window.location.href = "https://makeagif.com/i/6uIqkd";
-        }, 5000);
-      } else {
-        mensagemFinal.innerText = "Tudo bem... mas meu coração ainda é seu. 💔";
-      }
-    }
-
-    // Corações no fundo
-    for (let i = 0; i < 20; i++) {
-      let heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (8 + Math.random() * 5) + 's';
-      heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
-      document.body.appendChild(heart);
-    }
-  
-function iniciarTudo() {
-  document.getElementById("startScreen").remove();
-  musica.play().catch(() => console.log("Autoplay bloqueado"));
-  setTimeout(() => msg1.classList.add('show'), 1000);
-  setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
-  setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  
-setTimeout(() => {
-  msg3.classList.remove('show');
-  setTimeout(() => {
-    iniciarTransicaoComBrilho();
-  }, 100); // garantir que DOM esteja pronto
-}, 12000);
-
-}
-
-function iniciarTudo() {
-  document.getElementById("startScreen").remove();
-  musica.play().catch(() => console.log("Autoplay bloqueado"));
-
-  setTimeout(() => msg1.classList.add('show'), 1000);
-  setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
-  setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  
-setTimeout(() => {
-  msg3.classList.remove('show');
-  setTimeout(() => {
-    iniciarTransicaoComBrilho();
-  }, 100); // garantir que DOM esteja pronto
-}, 12000);
-
-}
-
-, 100); // garantir que DOM esteja pronto
-}, 12000);
-
-});
-
-
-
-function iniciarTransicaoComBrilho() {
-  console.log("Transição iniciada");
-  const overlay = document.getElementById("fadeOverlay");
-  const pedido = document.getElementById("pedidoFinal");
-  if (overlay && pedido) {
-    overlay.style.opacity = 1;
-    setTimeout(() => {
-      overlay.style.opacity = 0;
-      pedido.style.display = 'flex';
-      pedido.classList.add("show");
-    }, 1600);
-  }
-}
-
-  console.log("Transição iniciada");
-  const overlay = document.getElementById("fadeOverlay");
-  const pedido = document.getElementById("pedidoFinal");
-  if (overlay && pedido) {
-    overlay.style.opacity = 1;
-    setTimeout(() => {
-      overlay.style.opacity = 0;
-      pedido.style.display = 'flex';
-      pedido.classList.add("show");
-    }, 1600);
-  } else {
-    console.warn("Overlay ou pedidoFinal não encontrado.");
-  }
-}
-, 1600);
-  }
-}
-
-function iniciarTudo() {
-  document.getElementById("startScreen").remove();
-  try { musica.play(); } catch(e) { console.log("Erro ao tocar música"); }
-
-  setTimeout(() => msg1.classList.add('show'), 1000);
-  setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
-  setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => {
-    msg3.classList.remove('show');
-    iniciarTransicaoComBrilho();
-  }, 12500);
-}
-</script>
-<script>
-for (let i = 0; i < 25; i++) {
-  let heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = (8 + Math.random() * 5) + 's';
-  heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
-  document.body.appendChild(heart);
-}
-
-, 100); // garantir que DOM esteja pronto
-}, 12000);
-
-});
-
-
-
-function iniciarTransicaoComBrilho() {
-  console.log("Transição iniciada");
-  const overlay = document.getElementById("fadeOverlay");
-  const pedido = document.getElementById("pedidoFinal");
-  if (overlay && pedido) {
-    overlay.style.opacity = 1;
-    setTimeout(() => {
-      overlay.style.opacity = 0;
-      pedido.style.display = 'flex';
-      pedido.classList.add("show");
-    }, 1600);
-  }
-}
-
-  console.log("Transição iniciada");
-  const overlay = document.getElementById("fadeOverlay");
-  const pedido = document.getElementById("pedidoFinal");
-  if (overlay && pedido) {
-    overlay.style.opacity = 1;
-    setTimeout(() => {
-      overlay.style.opacity = 0;
-      pedido.style.display = 'flex';
-      pedido.classList.add("show");
-    }, 1600);
-  } else {
-    console.warn("Overlay ou pedidoFinal não encontrado.");
-  }
-}
-, 1600);
-  }
-}
-
-function iniciarTudo() {
-  document.getElementById("startScreen").remove();
-  try { musica.play(); } catch(e) { console.log("Erro ao tocar música"); }
-
-  setTimeout(() => msg1.classList.add('show'), 1000);
-  setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
-  setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => {
-    msg3.classList.remove('show');
-    iniciarTransicaoComBrilho();
-  }, 12500);
-}
-</script>
 
 <script>
 const msg1 = document.getElementById('msg1');
@@ -446,7 +216,14 @@ function responder(sim) {
     mf.textContent = '🖕';
   }
 }
-</script>
-
-</body>
+</script><script>
+for (let i = 0; i < 25; i++) {
+  let heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (8 + Math.random() * 5) + 's';
+  heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+  document.body.appendChild(heart);
+}
+</script></body>
 </html>
