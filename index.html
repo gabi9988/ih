@@ -44,6 +44,12 @@
       opacity: 1;
     }
     #pedidoFinal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
       display: none;
       flex-direction: column;
       align-items: center;
@@ -155,7 +161,7 @@ opacity:0; z-index:999; transition: opacity 1.5s ease;"></div>
   <button class="sim" onclick="responder(true)">Sim</button>
   <button class="nao" onclick="responder(false)">Não</button>
 </div>
-<div id="mensagemFinal" style="margin-top: 25px; font-size: 1.6em; color: #fff; opacity: 0; transition: opacity 1s ease;"></div>
+<div id="mensagemFinal" style="margin-top: 25px; font-size: 1.6em; color: #fff; opacity: 0; transition: opacity 1s ease; text-align: center;"></div>
 
       <button class="sim" onclick="responder(true)">Sim 💖</button>
       <button class="nao" onclick="responder(false)">Não 😢</button>
