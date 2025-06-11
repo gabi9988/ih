@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quer namorar comigo?</title>
+  <title>Surpresa pra você 💖</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,36 +12,56 @@
       padding: 0;
       background: linear-gradient(to bottom right, #ffe6eb, #fff0f5);
       font-family: 'Quicksand', sans-serif;
+      color: #4a4a4a;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
+      padding: 2rem 1rem;
     }
 
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       color: #ff6f91;
     }
 
     p {
       font-size: 1.2rem;
-      color: #444;
-      margin-top: 0.5rem;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
     }
 
     img {
       max-width: 300px;
-      margin: 1.5rem 0;
+      margin: 2rem 0 1rem;
       animation: fadeIn 2s ease-in-out;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+    .cta {
+      margin-top: 2rem;
+    }
+
+    .cta h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #ff6f91;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .button {
@@ -62,12 +82,19 @@
 </head>
 <body>
 
-  <h1>Quer namorar comigo?</h1>
-  <p>Essa surpresa é só pra dizer o quanto você é especial 💖</p>
+  <h1>Oi, amor 💌</h1>
+  <p>Essa é uma pequena surpresa feita com muito carinho...</p>
+  <p>Você é a razão dos meus sorrisos e dos meus dias mais bonitos.</p>
+  <p>Cada momento contigo é especial, e eu queria deixar isso registrado aqui. 💖</p>
 
-  <img src="bouquet_transparent.png" alt="Buquê de rosas vermelhas" />
-
-  <button class="button">Sim, mil vezes sim! 💘</button>
+  <div class="cta">
+    <h2>Quer namorar comigo?</h2>
+    <img src="bouquet_transparent.png" alt="Buquê de rosas vermelhas" />
+    <div class="buttons">
+      <button class="button">Sim, mil vezes sim! 💘</button>
+      <button class="button">Preciso pensar... 😅</button>
+    </div>
+  </div>
 
 </body>
 </html>
