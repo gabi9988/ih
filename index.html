@@ -185,7 +185,14 @@ document.body.addEventListener('click', () => {
     setTimeout(() => msg1.classList.add('show'), 1000);
     setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
     setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-    setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
+    
+setTimeout(() => {
+  msg3.classList.remove('show');
+  setTimeout(() => {
+    iniciarTransicaoComBrilho();
+  }, 100); // garantir que DOM esteja pronto
+}, 12000);
+
 
     
     function iniciarTransicaoCircular() {
@@ -247,7 +254,14 @@ function iniciarTudo() {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
+  
+setTimeout(() => {
+  msg3.classList.remove('show');
+  setTimeout(() => {
+    iniciarTransicaoComBrilho();
+  }, 100); // garantir que DOM esteja pronto
+}, 12000);
+
 }
 
 function iniciarTudo() {
@@ -257,7 +271,14 @@ function iniciarTudo() {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
+  
+setTimeout(() => {
+  msg3.classList.remove('show');
+  setTimeout(() => {
+    iniciarTransicaoComBrilho();
+  }, 100); // garantir que DOM esteja pronto
+}, 12000);
+
 }
 
 document.getElementById("startBtn").addEventListener("click", () => {
@@ -267,7 +288,14 @@ document.getElementById("startBtn").addEventListener("click", () => {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
+  
+setTimeout(() => {
+  msg3.classList.remove('show');
+  setTimeout(() => {
+    iniciarTransicaoComBrilho();
+  }, 100); // garantir que DOM esteja pronto
+}, 12000);
+
 });
 
 
@@ -320,7 +348,14 @@ document.getElementById("startBtn").addEventListener("click", () => {
   setTimeout(() => msg1.classList.add('show'), 1000);
   setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
-  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
+  
+setTimeout(() => {
+  msg3.classList.remove('show');
+  setTimeout(() => {
+    iniciarTransicaoComBrilho();
+  }, 100); // garantir que DOM esteja pronto
+}, 12000);
+
 });
 
 
