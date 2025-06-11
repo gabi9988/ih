@@ -276,14 +276,22 @@ document.getElementById("startBtn").addEventListener("click", () => {
   setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 });
 
+
 function iniciarTransicaoComBrilho() {
   const overlay = document.getElementById("fadeOverlay");
-  if (overlay) {
+  const pedido = document.getElementById("pedidoFinal");
+  if (overlay && pedido) {
     overlay.style.opacity = 1;
     setTimeout(() => {
       overlay.style.opacity = 0;
-      document.getElementById("pedidoFinal").classList.add("show");
+      pedido.style.display = 'flex';
+      pedido.classList.add("show");
     }, 1600);
+  } else {
+    console.warn("Overlay ou pedidoFinal não encontrado.");
+  }
+}
+, 1600);
   }
 }
 </script>
@@ -312,14 +320,22 @@ document.getElementById("startBtn").addEventListener("click", () => {
   setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoComBrilho(); }, 12000);
 });
 
+
 function iniciarTransicaoComBrilho() {
   const overlay = document.getElementById("fadeOverlay");
-  if (overlay) {
+  const pedido = document.getElementById("pedidoFinal");
+  if (overlay && pedido) {
     overlay.style.opacity = 1;
     setTimeout(() => {
       overlay.style.opacity = 0;
-      document.getElementById("pedidoFinal").classList.add("show");
+      pedido.style.display = 'flex';
+      pedido.classList.add("show");
     }, 1600);
+  } else {
+    console.warn("Overlay ou pedidoFinal não encontrado.");
+  }
+}
+, 1600);
   }
 }
 </script>
