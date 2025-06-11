@@ -150,7 +150,13 @@ opacity:0; z-index:999; transition: opacity 1.5s ease;"></div>
   
 <div id="pedidoFinal" style="display: none; flex-direction: column; align-items: center; gap: 20px; margin-top: 20px;">
   <div style="font-size: 2.5em; font-family: 'Playfair Display', serif; font-weight: bold; color: #fff;">Quer namorar comigo?</div>
-  <div class="botoes">
+  
+<div class="botoes">
+  <button class="sim" onclick="responder(true)">Sim</button>
+  <button class="nao" onclick="responder(false)">Não</button>
+</div>
+<div id="mensagemFinal" style="margin-top: 25px; font-size: 1.6em; color: #fff; opacity: 0; transition: opacity 1s ease;"></div>
+
       <button class="sim" onclick="responder(true)">Sim 💖</button>
       <button class="nao" onclick="responder(false)">Não 😢</button>
     </div>
