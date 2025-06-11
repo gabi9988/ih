@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pedido 💖</title>
+  <title>Surpresa 💖</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
       background: linear-gradient(135deg, #ffc6d0, #ff8fa3);
       font-family: 'Quicksand', sans-serif;
+      text-align: center;
       margin: 0;
-      padding: 0;
       overflow: hidden;
       height: 100vh;
       display: flex;
@@ -20,14 +20,38 @@
       justify-content: center;
     }
     .mensagem {
-      font-size: 2.8em;
+      font-size: 2em;
       color: #ff4d88;
-      text-align: center;
-      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 90%;
+      margin: 10px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
     }
-    .emoji {
-      font-size: 3em;
-      margin-bottom: 20px;
+    .mensagem.show {
+      opacity: 1;
+    }
+    #contador {
+      font-size: 4em;
+      margin: 20px;
+      color: #ff4d88;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    #contador.show {
+      opacity: 1;
+    }
+    #pedidoFinal {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    #pedidoFinal.show {
+      display: flex;
     }
     .botoes {
       display: flex;
@@ -36,53 +60,106 @@
     button {
       padding: 15px 30px;
       font-size: 1.2em;
-      border: none;
       border-radius: 20px;
-      color: white;
+      border: none;
       cursor: pointer;
+      color: white;
       transition: all 0.3s;
     }
+    .sim { background-color: #ff94b8; }
+    .nao { background-color: #ff4d4d; }
     button:hover {
       transform: scale(1.05);
       filter: brightness(1.1);
     }
-    .sim { background-color: #ff94b8; }
-    .nao { background-color: #ff4d4d; }
     #mensagemFinal {
       font-size: 2em;
       margin-top: 30px;
       color: #ff4d88;
     }
-    .confete {
+    .heart {
       position: absolute;
-      font-size: 16px;
-      color: red;
-      animation: cair 2s ease-out forwards;
+      width: 20px;
+      height: 20px;
+      background: #ff4d88;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.6;
     }
-    @keyframes cair {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(150px); opacity: 0; }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d88;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 0.7; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="mensagem">Quer namorar comigo?</div>
-  <div class="emoji">🌹</div>
-  <div class="botoes">
-    <button class="sim" onclick="responder(true)">Sim 💖</button>
-    <button class="nao" onclick="responder(false)">Não 😢</button>
+  <div id="msg1" class="mensagem">💘 Feliz Dia dos Namorados! 💘</div>
+  <div id="msg2" class="mensagem">🤔 Ué, mas a gente namora?</div>
+  <div id="msg3" class="mensagem">😳 Hmmm, me diz você então...</div>
+  <div id="contador" class="mensagem"></div>
+
+  <div id="pedidoFinal" class="mensagem">
+    <div style="font-size: 2em; font-weight: bold;">Quer namorar comigo?</div>
+    <div style="font-size: 3em;">🌹</div>
+    <div class="botoes">
+      <button class="sim" onclick="responder(true)">Sim 💖</button>
+      <button class="nao" onclick="responder(false)">Não 😢</button>
+    </div>
   </div>
-  <div id="mensagemFinal"></div>
+
+  <div id="mensagemFinal" class="mensagem" style="background: none;"></div>
 
   <audio id="musica" src="musica.mp3" preload="auto" autoplay loop></audio>
 
   <script>
+    const msg1 = document.getElementById('msg1');
+    const msg2 = document.getElementById('msg2');
+    const msg3 = document.getElementById('msg3');
+    const contador = document.getElementById('contador');
+    const pedidoFinal = document.getElementById('pedidoFinal');
     const mensagemFinal = document.getElementById('mensagemFinal');
     const musica = document.getElementById('musica');
-    musica.play().catch(() => {{ console.log("Autoplay bloqueado"); }});
+
+    musica.play().catch(() => console.log("Autoplay bloqueado"));
+
+    // Mostrar frases em sequência
+    setTimeout(() => msg1.classList.add('show'), 1000);
+    setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
+    setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
+    setTimeout(() => { msg3.classList.remove('show'); iniciarContagem(); }, 12000);
+
+    function iniciarContagem() {
+      contador.classList.add('show');
+      let numeros = ["3", "2", "1"];
+      let i = 0;
+      const intervalo = setInterval(() => {
+        contador.innerText = numeros[i];
+        i++;
+        if (i === numeros.length) {
+          clearInterval(intervalo);
+          contador.classList.remove('show');
+          setTimeout(() => {
+            pedidoFinal.classList.add('show');
+          }, 300);
+        }
+      }, 1000);
+    }
 
     function responder(sim) {
+      document.querySelector('.botoes').style.display = 'none';
       if (sim) {
         mensagemFinal.innerText = "Então pode abrir a caixa... 💝";
         setTimeout(() => {
@@ -91,6 +168,16 @@
       } else {
         mensagemFinal.innerText = "🖕";
       }
+    }
+
+    // Corações no fundo
+    for (let i = 0; i < 20; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (8 + Math.random() * 5) + 's';
+      heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+      document.body.appendChild(heart);
     }
   </script>
 
