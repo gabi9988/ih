@@ -102,7 +102,33 @@
       50% { opacity: 0.7; }
       100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
     }
-  </style>
+  
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff4d88;
+  transform: rotate(45deg);
+  animation: floatUp 10s linear infinite;
+  opacity: 0.6;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff4d88;
+  border-radius: 50%;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+}
+</style>
 </head>
 <body>
 <div id="startScreen" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); color:#fff; display:flex; align-items:center; justify-content:center; z-index:2000;">
@@ -212,7 +238,29 @@ function iniciarTudo() {
   setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
   setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
 }
+
+function iniciarTudo() {
+  document.getElementById("startScreen").remove();
+  musica.play().catch(() => console.log("Autoplay bloqueado"));
+
+  setTimeout(() => msg1.classList.add('show'), 1000);
+  setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
+  setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
+  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+}
 </script>
 
+
+
+<script>
+for (let i = 0; i < 25; i++) {
+  let heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (8 + Math.random() * 5) + 's';
+  heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+  document.body.appendChild(heart);
+}
+</script>
 </body>
 </html>
