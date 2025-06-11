@@ -105,6 +105,11 @@
   </style>
 </head>
 <body>
+<div id="startScreen" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); color:#fff; display:flex; align-items:center; justify-content:center; z-index:2000;">
+  <button onclick="iniciarTudo()" style="padding: 20px 40px; font-size: 1.4em; border-radius: 30px; background-color: #ff4d88; color: white; border: none; font-family: 'Quicksand', sans-serif; cursor: pointer;">
+    💖 Clique aqui para começar 💖
+  </button>
+</div>
 
   <div id="msg1" class="mensagem">💘 Feliz Dia dos Namorados! 💘</div>
   <div id="msg2" class="mensagem">🤔 Ué, mas a gente namora?</div>
@@ -198,7 +203,16 @@ setTimeout(() => {
       heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
       document.body.appendChild(heart);
     }
-  </script>
+  
+function iniciarTudo() {
+  document.getElementById("startScreen").remove();
+  musica.play().catch(() => console.log("Autoplay bloqueado"));
+  setTimeout(() => msg1.classList.add('show'), 1000);
+  setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
+  setTimeout(() => { msg2.classList.remove('show'); msg3.classList.add('show'); }, 9500);
+  setTimeout(() => { msg3.classList.remove('show'); iniciarTransicaoCircular(); }, 12000);
+}
+</script>
 
 </body>
 </html>
